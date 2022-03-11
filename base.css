@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    background-color:rgb(253, 196, 9);
+    box-shadow: 2px 5px;
+    padding:2rem;
+    min-width: 100%;
+}
+header menu{
+    display: flex;
+    list-style: none;
+    background-color: rgb(231, 153, 8);
+ height: 2px;
+
+ 
+}
+header menu li{
+    display:block;
+background-color: black;
+color: white; 
+
+}
+h1{
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 1000;
+    font-size: 2cm;
+    text-align:center;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+main {
+    max-width: 800px;
+    margin:auto;
+
+}
+main h2{
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+menu li{
+    font-weight: bold;
+}
