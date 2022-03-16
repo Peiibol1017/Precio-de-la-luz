@@ -32,6 +32,8 @@ body {
     justify-content: center;
 }
 
+
+/* Header */
 header {
     background-color: var(--colorHeader);
     grid-area: header;
@@ -47,6 +49,8 @@ header h1 {
     align-self: center;
 }
 
+
+/* Navigator */
 nav {
     grid-area: Navigator;
     top: 0px;
@@ -74,6 +78,7 @@ nav a {
     font-weight: bold;
 }
 
+/* Main */
 main {
     background-color: var(--colorMain);
     grid-area: main;
@@ -98,6 +103,22 @@ main section:nth-child(2) ul li {
 
 main section:nth-child(2) h2 {
     margin: 0 0 0.75rem 1rem;
+}
+
+.dispositivo_ej p:last-child {
+    margin: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold; 
+}
+
+
+
+#valor_precio_luz {
+    margin: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .dispositivo_ej figure img {
@@ -141,9 +162,9 @@ footer ul li {
     line-height: 1.5rem;
     margin: 0 1rem;
 }
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
 nav {
 display: flex;
  width: 100%;
 
-}
+} */

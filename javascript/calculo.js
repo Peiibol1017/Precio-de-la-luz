@@ -1,15 +1,7 @@
-// import { getCurrentPrice } from "./peticion.js"
+// import { getPrice } from "./peticion.js"
 
 //Aquí habría que poner el precio de la petición
-const currentPrice = {
-    "date": "15-03-2022",
-    "hour": "00-01",
-    "is-cheap": true,
-    "is-under-avg": true,
-    "market": "PVPC",
-    "price": 276.92,
-    "units": "€/Mwh"
-}
+
 
 // const dispositivo1 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
 // const dispositivo2 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
