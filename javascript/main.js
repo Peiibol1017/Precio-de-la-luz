@@ -1,13 +1,14 @@
-/* // import {getCurrentPrice, getMaxPrice, getMinPrice} from "./peticion.js";
-import * as dispositivos from "./calculo.js"; */
-import {getPrice} from "./peticion.js";
+import {dispositivo1} from "./calculo.js";
+import {test} from "./peticion.js";
 
 //Aquí en el main manipularía el DOM. Para colocar cosas en el DOM tendría que poner funciones con callbacks a funciones de peticiones.
 
 
 //Selectores
 const euroMvatioHora = document.querySelector("#valor_precio_luz");
-const consumoXbox = document.querySelector("#consola p:last-child");
+const consumoXbox = document.querySelector("#vitro p:last-child");
+
+
 
 
 
@@ -15,6 +16,7 @@ const consumoXbox = document.querySelector("#consola p:last-child");
 
 /* Cambios en DOM:
 euroMvatioHora
+ordenadorSobremesa
 consumoPortatil
 consumoMonitor
 consumoServidor */
@@ -22,23 +24,16 @@ consumoServidor */
 
 
 //Funciones
+  async function showActualPrice(dom, B, A) {
+    const price = await test(B, A);
+    dom.textContent = `${price} €/Mwh`;
+  }
+  
+  async function showAnPrice(dom, value) {
+    dom.textContent = `${value} €`;
+  }
+  
 
-
-
-
-
-async function showActualPrice(dom, A) {
-    const price = await getPrice(A)
-    dom.textContent = `${price} €/Mwh`
-}
-
-
-
-
-
-setInterval(() => {
-    showActualPrice(euroMvatioHora, "price")
-    showActualPrice(euroMvatioHora, "hour")
-    console.log("han pasado 5 min");
-}, 10000);
-
+  //Llamadas para la página
+  showActualPrice(euroMvatioHora, "actual", "price");
+  showAnPrice(consumoXbox, xbox);

@@ -1,9 +1,9 @@
-// import { getPrice } from "./peticion.js"
+import { text } from "./peticion.js"
 
 //Aquí habría que poner el precio de la petición
 
 
-// const dispositivo1 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
+export const dispositivo1 = (250 / 1000000) * (await test("actual", "price"));
 // const dispositivo2 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
 // const dispositivo3 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
 // const dispositivo4 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
@@ -14,7 +14,7 @@
 // const dispositivo9 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
 // const dispositivo100 = ((/* Seleccionar etiqueta *//1000)*currentPrice.price)
 
-export * from "./calculo.js";
+
 
 
 
