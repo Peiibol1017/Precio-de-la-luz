@@ -5,13 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Rubén Castro & Pablo Díaz">
-        <meta name="description" content="Proyecto 1: aplicación que muestra el precio en tiempo real el precio de la energía; Index(Informática)">
+        <meta name="description" content="Proyecto 1: aplicación que muestra el precio en tiempo real el precio de la energía; Cocina">
         <link rel="stylesheet" href="/css/style.css">
         <title>Precio de la Luz</title>
         <link rel="icon" href="/img/PrecioLuz.png">
        
     </head>
-    
     <body>
         <header>
             <img src="/img/bombilla-Dollar.jpg" alt="bombilla-Dollar">
@@ -23,10 +22,11 @@
                 <li><a href="/index.html" class="informatica">Informática</a></li>
                 <li><a href="/cocina.html" class="cocina">Cocina</a></li>
                 <li><a href="/iluminacion.html" class="iluminacion">Iluminación</a></li>
-                <li><a href="/calefaccion.html" class="calefaccion">Calefacción</a></li>
+                <li><a href="/calefaccion.html"class="calefaccion">Calefacción</a></li>
             </menu>
-            
+
         </nav>
+
         <main>
             <div>
                 <menu class="cellPhone">
@@ -47,53 +47,53 @@
             </section>
 
             <section id="ejemplos">
-                <h2>Consumos de algunos productos de Informática</h2>
+                <h2>Consumos de algunos electrodomésticos</h2>
                 <ul>
                     <li>
-                        <article class= "dispositivo_ej" id="sobremesa">
-                            <h3>Ordenador de escritorio</h3>
+                        <article class= "dispositivo_ej" id="Lavadora">
+                            <h3>Lavadora</h3>
                             <figure>
-                                <img src="/img/Sobremesa.jpg" alt="Ordenador de sobremesa">
+                                <img src="/img/lavadora.jpg" alt="Lavadora">
                             </figure>
-                            <p>El consumo aproximado de un ordenador de sobremesa es <strong>260W</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="0.260"></p>
+                            <p>El consumo aproximado de una lavadora es <strong>4.34 kWh</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
+                            <p data-power="4.34" class="valor_precio_luz"></p>
                         </article>
                     </li>
                     <li>
-                        <article class= "dispositivo_ej" id="Monitor">
-                            <h3>Monitor</h3>
+                        <article class= "dispositivo_ej" id="Frigorifico">
+                            <h3>Frigorífico</h3>
                             <figure>
-                                <img src="/img/Monitor.jpg" alt="Monitor de ordenador">
+                                <img src="/img/frigorifico.jpg" alt="Frigorífico">
                             </figure>
-                            <p>El consumo aproximado de un monitor para ordenador de sobremesa es <strong>45W</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="0.045"></p>
+                            <p>El consumo aproximado de un frigorífico es <strong>0.025Kwh</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
+                            <p data-power="0.025"></p>
                         </article>
                     </li>
                     <li>            
-                        <article class= "dispositivo_ej" id="Impresora">
-                            <h3>Impresora</h3>
+                        <article class= "dispositivo_ej" id="Induccion">
+                            <h3>Placa de inducción</h3>
                             <figure>
-                                <img src="/img/impresora.jpg" alt="Impresora">
+                                <img src="/img/inducción.jpg" alt="Placa de inducción">
                             </figure>
-                            <p>El consumo aproximado de una impresora es <strong>459W</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="0.459"></p>
+                            <p>El consumo aproximado de una placa de inducción es <strong>7.4 kwh(potencia máxima)</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
+                            <p data-power="7.4"></p>
                         </article>
                     </li>
                     <li>
-                        <article class= "dispositivo_ej" id="Portatil">
-                            <h3>Portátil Gaming</h3>
+                        <article class= "dispositivo_ej" id="Horno">
+                            <h3>Horno</h3>
                             <figure>
-                                <img src="/img/Portatil.jpg" alt="Placa de inducción">
+                                <img src="/img/horno.jpg" alt="Horno">
                             </figure>
-                            <p>El consumo aproximado de un portátil es <strong>85W</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="0.085"></p>
+                            <p>El consumo aproximado de un horno es <strong>0.97 kwh</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
+                            <p data-power="0.97" ></p>
                         </article>
                     </li>
                 </ul>
             </section>
 
             <section id="fuente">
-                <p>Los datos proporcionados son propiedad de Red eléctrica de España. Esta aplicación web no se hace responsable de la inexactitud de los mismos tras obtenerlos de la fuente o debido a su posterior tratamiento.</p>
+                <p>Los datos proporcionados sobre el precio de la energía son propiedad de Red eléctrica de España. Esta aplicación web no se hace responsable de la inexactitud de los mismos tras obtenerlos de la fuente o debido a su posterior tratamiento.</p>
                 <p>Los datos aquí mostrados han sido obtenidos de <strong><a href="https://api.preciodelaluz.org/" target="blank">https://api.preciodelaluz.org/</a></strong> </p>
             </section>
         </main>
