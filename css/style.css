@@ -17,6 +17,7 @@ html {
 }
 
 body {
+    position: relative;
     background-color: var(--colorBody);
     font-family: sans-serif;
     height: 100%;
@@ -30,6 +31,10 @@ body {
         "footer"
     ;
     justify-content: center;
+}
+
+span {
+    font-weight: bold;    
 }
 
 
@@ -51,58 +56,144 @@ header h1 {
 
 
 /* Navigator */
-nav {
-    grid-area: Navigator;
-    top: 0px;
-    background: linear-gradient(white, var(--colorNav));
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position:sticky;
-   
+
+@media (min-width:750px) {
+    nav {
+        grid-area: Navigator;
+        top: 0px;
+        background: linear-gradient(white, var(--colorNav));
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position:sticky;
+    
+    }
+
+
+    nav menu {
+        width: 100vh;
+        display: flex;
+        justify-content: space-evenly; 
+    }
+    
+    nav menu li {
+        list-style: none;
+    }
+    
+    
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+    }
+    nav a:hover {
+        text-decoration: none;
+        font-weight: bold;
+        color: blue;
+    }
+    
+    #botonMenu {
+        width: 40px;
+        display: none;
+    }
+
+    div {
+        display: none;
+    }
 }
 
-nav menu {
-    width: 100vh;
-    display: flex;
-    justify-content: space-evenly; 
+
+
+@media (max-width:750px) {
+    nav {
+        grid-area: Navigator;
+        top: 0px;
+        background: linear-gradient(white, var(--colorNav));
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        position:sticky;
+    }
+    
+
+    nav menu li {
+        list-style: none; 
+    }
+    
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        display: none;    
+    }
+
+    div {
+        width: 7rem;
+        height: 8rem;
+        background-color: var(--colorNav);
+        position: sticky;
+        top: 4rem; left: 80vw;  
+        display: none; 
+            
+
+    }
+    
+    div menu li {
+        list-style: none;
+        margin: 0.5rem 0.25rem;
+    }
+    div menu li a {
+        text-decoration: none;
+        color: black;
+        
+    }
+    div menu li a:hover {
+        color: blue;
+        
+    }
+
+
+    #botonMenu {
+        position: relative;
+        width: 40px;
+        margin-right: 1rem;
+    }
+    
 }
 
-nav menu li {
-    list-style: none;
-}
-
-nav a {
-    text-decoration: none;
-    font-weight: bold;
-}
 
 /* Main */
 main {
+    
     background-color: var(--colorMain);
     grid-area: main;
     display: flex;
     flex-direction: column;
 }
 
-main section:first-child {
-    margin: 1.5rem 1rem;
+main section#tarifa {
+    margin: 1.5rem 3rem;
 }
 
-main section:first-child h2, main section:first-child p:first-of-type {
+main section#tarifa h2 {
     text-align: justify;
-    text-justify: auto;
     line-height: 1.5rem;
     margin: 0.75rem 0;
 }
 
-main section:nth-child(2) ul li {
+main section#tarifa p {
+    line-height: 1.5rem;
+    margin: 0.75rem 0;
+    align-items: center;
+}
+
+main section#ejemplos ul li {
     list-style: none;
 }
 
-main section:nth-child(2) h2 {
-    margin: 0 0 0.75rem 1rem;
+main section#ejemplos h2 {
+    margin: 2rem 3rem 0 3rem;
 }
 
 .dispositivo_ej p:last-child {
@@ -114,26 +205,47 @@ main section:nth-child(2) h2 {
 
 
 
-#valor_precio_luz {
+.valor_precio_luz, [data-power] {
     margin: 2rem;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
+    text-shadow: 1px 1px 2px grey;
+
+}
+
+.valor_precio_luz:hover, [data-power]:hover {
+    color: blue;
+}
+
+
+.dispositivo_ej figure {
+    display: flex;
+    justify-content: center;
 }
 
 .dispositivo_ej figure img {
-    width: 80vw;
+    width: 50%;
+    margin: 1rem;  
 }
 
 .dispositivo_ej h3 {
-    margin: 2rem 1rem;
+    display: block;
+    margin: 3.5rem 3rem 1.5rem;
+    padding-top: 1rem;
+    border-bottom: 3px solid black;
 }
+
+.dispositivo_ej h3:first-of-type{
+    margin: 1.5rem 3rem 1.5rem;
+}
+
 
 .dispositivo_ej p {
     text-align: justify;
     text-justify: auto;
     line-height: 1.5rem;
-    margin: 0 1rem;
+    margin: 0 3rem;
 }
 
 #fuente {
@@ -162,9 +274,3 @@ footer ul li {
     line-height: 1.5rem;
     margin: 0 1rem;
 }
-/* @media (max-width: 600px) {
-nav {
-display: flex;
- width: 100%;
-
-} */

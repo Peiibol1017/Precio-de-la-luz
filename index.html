@@ -11,28 +11,39 @@
         <link rel="icon" href="/img/PrecioLuz.png">
        
     </head>
+    
     <body>
         <header>
             <img src="/img/bombilla-Dollar.jpg" alt="bombilla-Dollar">
             <h1>Precio de la Luz</h1>
         </header>
         <nav>
-            <menu>
+            <menu class="screen">
+                <li><img src="/img/menu desplegable.png" alt="menu desplegable" id="botonMenu" data-status="close"></li>
                 <li><a href="/index.html" class="informatica">Informática</a></li>
                 <li><a href="/cocina.html" class="cocina">Cocina</a></li>
                 <li><a href="/iluminacion.html" class="iluminacion">Iluminación</a></li>
                 <li><a href="/calefaccion.html" class="calefaccion">Calefacción</a></li>
-                <li><a class="varios">Varios</a></li>
             </menu>
-
+            
         </nav>
-
         <main>
+            <div>
+                <menu class="cellPhone">
+                    <li><a href="/index.html" class="informatica">Informática</a></li>
+                    <li><a href="/cocina.html" class="cocina">Cocina</a></li>
+                    <li><a href="/iluminacion.html" class="iluminacion">Iluminación</a></li>
+                    <li><a href="/calefaccion.html" class="calefaccion">Calefacción</a></li>
+                </menu>
+            </div>
             <section id="tarifa">
                 <h2>Tarifa</h2>
-                <p>El precio de la energía varía a lo largo del día. A continuación se muestra el precio voluntario para el pequeño consumidor (PVPC) actual de la energía (Euros/MWh) </p>
-                <p id="valor_precio_luz"></p>
-                <p id="grafico"></p>
+                <p data-hora="actual">El precio de la energía varía a lo largo del día. A continuación se muestra el precio voluntario para el pequeño consumidor (PVPC) actual<span></span> de la energía (Euros/MWh) </p>
+                <p class="valor_precio_luz" data-precio="actual"></p>
+                <p data-hora="max">El precio máximo hoy se alcanza en el periodo comprendido entre las <span></span></p>
+                <p class="valor_precio_luz" data-precio="max"></p>
+                <p data-hora="min">El precio mínimo hoy se alcanza en el periodo comprendido entre las <span></span></p>
+                <p class="valor_precio_luz" data-precio="min"></p>
             </section>
 
             <section id="ejemplos">
