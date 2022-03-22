@@ -1,276 +1,273 @@
-
-
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    --colorBody: rgb(219, 219, 219);
-    --colorHeader: white;
-    --colorNav: darkgrey;
-    --colorMain: white;
-    --colorFooter: white;
-
+  --colorBody: rgb(219, 219, 219);
+  --colorHeader: white;
+  --colorNav: darkgrey;
+  --colorMain: white;
+  --colorFooter: white;
 }
 
 body {
-    position: relative;
-    background-color: var(--colorBody);
-    font-family: sans-serif;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 80vw;
-    grid-template-rows: 5rem 4rem auto 3rem;
-    grid-template-areas: 
-        "header"
-        "Navigator"
-        "main"
-        "footer"
-    ;
-    justify-content: center;
+  position: relative;
+  background-color: var(--colorBody);
+  font-family: sans-serif;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 80vw;
+  grid-template-rows: 5rem 4rem auto 3rem;
+  grid-template-areas:
+    "header"
+    "Navigator"
+    "main"
+    "footer";
+  justify-content: center;
 }
 
 span {
-    font-weight: bold;    
+  font-weight: bold;
 }
-
 
 /* Header */
 header {
-    background-color: var(--colorHeader);
-    grid-area: header;
-    display: flex;
-    justify-content: center;
+  background-color: var(--colorHeader);
+  grid-area: header;
+  display: flex;
+  justify-content: center;
 }
 
 header img {
-    object-fit: contain;
+  object-fit: contain;
 }
 
 header h1 {
-    align-self: center;
+  align-self: center;
 }
-
 
 /* Navigator */
 
-@media (min-width:750px) {
-    nav {
-        grid-area: Navigator;
-        top: 0px;
-        background: linear-gradient(white, var(--colorNav));
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        position:sticky;
-    
-    }
+@media (min-width: 750px) {
+  nav {
+    grid-area: Navigator;
+    top: 0px;
+    background: linear-gradient(white, var(--colorNav));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+  }
 
+  nav menu {
+    width: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+  }
 
-    nav menu {
-        width: 100vh;
-        display: flex;
-        justify-content: space-evenly; 
-    }
-    
-    nav menu li {
-        list-style: none;
-    }
-    
-    
-    nav a {
-        text-decoration: none;
-        font-weight: bold;
-        color: black;
-    }
-    nav a:hover {
-        text-decoration: none;
-        font-weight: bold;
-        color: blue;
-    }
-    
-    #botonMenu {
-        width: 40px;
-        display: none;
-    }
+  nav menu li {
+    list-style: none;
+  }
+  nav menu li:hover {
+    background-color: rgb(97, 100, 84);
+  }
 
-    div {
-        display: none;
-    }
+  nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
+  nav a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: blue;
+  }
+
+  #botonMenu {
+    width: 40px;
+    display: none;
+  }
+
+  div {
+    display: none;
+  }
 }
 
+@media (max-width: 750px) {
+  nav {
+    grid-area: Navigator;
+    top: 0px;
+    background: linear-gradient(white, var(--colorNav));
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    position: sticky;
+  }
 
+  nav menu li {
+    list-style: none;
+  }
 
-@media (max-width:750px) {
-    nav {
-        grid-area: Navigator;
-        top: 0px;
-        background: linear-gradient(white, var(--colorNav));
-        display: flex;
-        flex-direction: row;
-        justify-content: end;
-        align-items: center;
-        position:sticky;
-    }
-    
+  nav a {
+    text-decoration: none;
+    font-weight: bold;
+    display: none;
+  }
 
-    nav menu li {
-        list-style: none; 
-    }
-    
-    nav a {
-        text-decoration: none;
-        font-weight: bold;
-        display: none;    
-    }
+  div {
+    width: 12rem;
+    height: 8rem;
+    background-color: var(--colorNav);
+    position: sticky;
+    top: 4rem;
+    left: 80vw;
+    display: none;
+  }
 
-    div {
-        width: 7rem;
-        height: 8rem;
-        background-color: var(--colorNav);
-        position: sticky;
-        top: 4rem; left: 80vw;  
-        display: none; 
-            
+  div menu li {
+    list-style: none;
+    margin: 0.5rem 0.25rem;
+  }
+  div menu li:hover {
+    background-color: rgb(97, 100, 84);
+  }
+  div menu li:target {
+    background-color: rgb(233, 233, 232);
+  }
+  div menu li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
+  div menu li a:hover {
+    color: blue;
+  }
 
-    }
-    
-    div menu li {
-        list-style: none;
-        margin: 0.5rem 0.25rem;
-    }
-    div menu li a {
-        text-decoration: none;
-        color: black;
-        
-    }
-    div menu li a:hover {
-        color: blue;
-        
-    }
-
-
-    #botonMenu {
-        position: relative;
-        width: 40px;
-        margin-right: 1rem;
-    }
-    
+  #botonMenu {
+    position: relative;
+    width: 40px;
+    margin-right: 1rem;
+  }
 }
-
 
 /* Main */
 main {
-    
-    background-color: var(--colorMain);
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
+  background-color: var(--colorMain);
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
 }
 
 main section#tarifa {
-    margin: 1.5rem 3rem;
+  margin: 1.5rem 3rem;
 }
 
 main section#tarifa h2 {
-    text-align: justify;
-    line-height: 1.5rem;
-    margin: 0.75rem 0;
+  text-align: justify;
+  line-height: 1.5rem;
+  margin: 0.75rem 0;
 }
 
 main section#tarifa p {
-    line-height: 1.5rem;
-    margin: 0.75rem 0;
-    align-items: center;
+  line-height: 1.5rem;
+  margin: 0.75rem 0;
+  align-items: center;
 }
 
 main section#ejemplos ul li {
-    list-style: none;
+  list-style: none;
 }
 
 main section#ejemplos h2 {
-    margin: 2rem 3rem 0 3rem;
+  margin: 2rem 3rem 0 3rem;
 }
 
 .dispositivo_ej p:last-child {
-    margin: 2rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold; 
+  margin: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-
-
-.valor_precio_luz, [data-power] {
-    margin: 2rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px grey;
-
+#actual {
+  color: blue;
+}
+#max {
+  color: red;
+}
+#min {
+  color: green;
 }
 
-.valor_precio_luz:hover, [data-power]:hover {
-    color: blue;
+.valor_precio_luz,
+[data-power] {
+  margin: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px grey;
 }
 
+.valor_precio_luz:hover,
+[data-power]:hover {
+  color: blue;
+}
 
 .dispositivo_ej figure {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .dispositivo_ej figure img {
-    width: 50%;
-    margin: 1rem;  
+  width: 50%;
+  margin: 1rem;
 }
 
 .dispositivo_ej h3 {
-    display: block;
-    margin: 3.5rem 3rem 1.5rem;
-    padding-top: 1rem;
-    border-bottom: 3px solid black;
+  display: block;
+  margin: 3.5rem 3rem 1.5rem;
+  padding-top: 1rem;
+  border-bottom: 3px solid black;
 }
 
-.dispositivo_ej h3:first-of-type{
-    margin: 1.5rem 3rem 1.5rem;
+.dispositivo_ej h3:first-of-type {
+  margin: 1.5rem 3rem 1.5rem;
 }
-
 
 .dispositivo_ej p {
-    text-align: justify;
-    text-justify: auto;
-    line-height: 1.5rem;
-    margin: 0 3rem;
+  text-align: justify;
+  text-justify: auto;
+  line-height: 1.5rem;
+  margin: 0 3rem;
 }
 
 #fuente {
-    background-color: rgb(155, 204, 245);
-    text-align: justify;
-    text-justify: auto;
-    line-height: 1.5rem;
-    padding: 2rem 1rem;
+  background-color: rgb(155, 204, 245);
+  text-align: justify;
+  text-justify: auto;
+  line-height: 1.5rem;
+  padding: 2rem 1rem;
 }
 
 #fuente p {
-    font-style: italic;
-    margin: 1rem 0;
+  font-style: italic;
+  margin: 1rem 0;
 }
 
 main > footer {
-    background-color: var(--colorFooter);
-    grid-area: footer;
-    background: linear-gradient(white, var(--colorNav));
+  background-color: var(--colorFooter);
+  grid-area: footer;
+  background: linear-gradient(white, var(--colorNav));
 }
 
 footer ul li {
-    font-size: smaller;
-    list-style: none;
-    text-align: center;
-    line-height: 1.5rem;
-    margin: 0 1rem;
+  font-size: smaller;
+  list-style: none;
+  text-align: center;
+  line-height: 1.5rem;
+  margin: 0 1rem;
 }
