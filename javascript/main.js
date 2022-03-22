@@ -44,7 +44,7 @@ async function showActualPrice() {
     arrayPower[i].textContent = `${Math.round(devicePrice * 100) / 100} €`;
   }
   console.log(price);
-  checkChange();
+  await checkChange();
   console.log("llamamos en teoria a checkchange");
   return price;
 }
@@ -84,8 +84,6 @@ function showDias() {
   return JSON.stringify(fechaConsulta.fecha);
 }
 async function checkChange() {
-  const price = await test("actual", "price");
-  const checkPrice = localStorage.getItem("precio");
   const checkFecha = localStorage.getItem("fecha");
   const minutos = parseFloat(localStorage.getItem("minutos"));
   const horas = parseFloat(localStorage.getItem("horas"));
@@ -95,7 +93,7 @@ async function checkChange() {
     checkFecha != showDias()
   ) {
     console.log("He llegado aquí");
-    showActualPrice();
+    await showActualPrice();
     return;
   } else {
     setTimeout(() => {
@@ -107,7 +105,7 @@ async function checkChange() {
     }, 60000);
   }
 }
-function showPriceLocal() {
+async function showPriceLocal() {
   const price = localStorage.getItem("precio");
   const priceHour = localStorage.getItem("horaPrecio");
   const maxPrice = localStorage.getItem("precioMax");
@@ -129,16 +127,16 @@ function showPriceLocal() {
   checkChange();
   return;
 }
-function firstCheckHandle() {
+async function firstCheckHandle() {
   try {
     if (localStorage.getItem("minutos") === null) {
       console.log("se procede a guardar la hora");
-      showActualPrice();
-      checkChange();
+      await showActualPrice();
+      await checkChange();
     } else {
       console.log("tu ya has estado aqui");
-      checkChange();
-      showPriceLocal();
+      await showPriceLocal();
+      await checkChange();
     }
   } catch (error) {
     console.error(error.message);
