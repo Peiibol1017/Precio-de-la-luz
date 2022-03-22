@@ -1,109 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Rubén Castro & Pablo Díaz">
-        <meta name="description" content="Proyecto 1: aplicación que muestra el precio en tiempo real el precio de la energía; Cocina">
-        <link rel="stylesheet" href="/css/style.css">
-        <title>Precio de la Luz</title>
-        <link rel="icon" href="/img/PrecioLuz.png">
-       
-    </head>
-    <body>
-        <header>
-            <img src="/img/bombilla-Dollar.jpg" alt="bombilla-Dollar">
-            <h1>Precio de la Luz</h1>
-        </header>
-        <nav>
-            <menu class="screen">
-                <li><img src="/img/menu desplegable.png" alt="menu desplegable" id="botonMenu" data-status="close"></li>
-                <li><a href="/index.html" class="informatica">Informática</a></li>
-                <li><a href="/cocina.html" class="cocina">Cocina</a></li>
-                <li><a href="/iluminacion.html" class="iluminacion">Iluminación</a></li>
-                <li><a href="/calefaccion.html"class="calefaccion">Calefacción</a></li>
-            </menu>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Rubén Castro & Pablo Díaz" />
+    <meta
+      name="description"
+      content="Proyecto 1: aplicación que muestra el precio en tiempo real el precio de la energía; Cocina"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Precio de la Luz</title>
+    <link rel="icon" href="/img/PrecioLuz.png" />
+  </head>
+  <body>
+    <header>
+      <img src="/img/bombilla-Dollar.jpg" alt="bombilla-Dollar" />
+      <h1>Precio de la Luz</h1>
+    </header>
+    <nav>
+      <menu class="screen">
+        <li>
+          <img
+            src="/img/menu desplegable.png"
+            alt="menu desplegable"
+            id="botonMenu"
+            data-status="close"
+          />
+        </li>
+        <li><a href="/index.html" class="informatica">Informática</a></li>
+        <li><a href="/cocina.html" class="cocina">Cocina</a></li>
+        <li>
+          <a href="/entretenimiento.html" class="entretenimiento"
+            >Entretenimiento</a
+          >
+        </li>
+        <li><a href="/calefaccion.html" class="calefaccion">Calefacción</a></li>
+      </menu>
+    </nav>
 
-        </nav>
+    <main>
+      <div>
+        <menu class="cellPhone">
+          <li><a href="/index.html" class="informatica">Informática</a></li>
+          <li><a href="/cocina.html" class="cocina">Cocina</a></li>
+          <li>
+            <a href="/entretenimiento.html" class="entretenimiento"
+              >Entretenimiento</a
+            >
+          </li>
+          <li>
+            <a href="/calefaccion.html" class="calefaccion">Calefacción</a>
+          </li>
+        </menu>
+      </div>
+      <section id="tarifa">
+        <h2>Tarifa</h2>
+        <p data-hora="actual">
+          El precio de la energía varía a lo largo del día. A continuación se
+          muestra el precio voluntario para el pequeño consumidor (PVPC)
+          actual<span></span> de la energía (Euros/MWh)
+        </p>
+        <p class="valor_precio_luz" id="actual" data-precio="actual"></p>
+        <p data-hora="max">
+          El precio máximo hoy se alcanza en el periodo comprendido entre las
+          <span></span>
+        </p>
+        <p class="valor_precio_luz" id="max" data-precio="max"></p>
+        <p data-hora="min">
+          El precio mínimo hoy se alcanza en el periodo comprendido entre las
+          <span></span>
+        </p>
+        <p class="valor_precio_luz" id="min" data-precio="min"></p>
+      </section>
 
-        <main>
-            <div>
-                <menu class="cellPhone">
-                    <li><a href="/index.html" class="informatica">Informática</a></li>
-                    <li><a href="/cocina.html" class="cocina">Cocina</a></li>
-                    <li><a href="/iluminacion.html" class="iluminacion">Iluminación</a></li>
-                    <li><a href="/calefaccion.html" class="calefaccion">Calefacción</a></li>
-                </menu>
-            </div>
-            <section id="tarifa">
-                <h2>Tarifa</h2>
-                <p data-hora="actual">El precio de la energía varía a lo largo del día. A continuación se muestra el precio voluntario para el pequeño consumidor (PVPC) actual<span></span> de la energía (Euros/MWh) </p>
-                <p class="valor_precio_luz" data-precio="actual"></p>
-                <p data-hora="max">El precio máximo hoy se alcanza en el periodo comprendido entre las <span></span></p>
-                <p class="valor_precio_luz" data-precio="max"></p>
-                <p data-hora="min">El precio mínimo hoy se alcanza en el periodo comprendido entre las <span></span></p>
-                <p class="valor_precio_luz" data-precio="min"></p>
-            </section>
+      <section id="ejemplos">
+        <h2>Consumos de algunos electrodomésticos</h2>
+        <ul>
+          <li>
+            <article class="dispositivo_ej" id="Lavadora">
+              <h3>Lavadora</h3>
+              <figure>
+                <img src="/img/lavadora.jpg" alt="Lavadora" />
+              </figure>
+              <p>
+                El consumo aproximado de una lavadora es
+                <strong>4.34 kWh</strong>. De modo que con el precio actual de
+                la energía, el coste por usar este producto durante una hora es:
+              </p>
+              <p data-power="4.34" class="valor_precio_luz"></p>
+            </article>
+          </li>
+          <li>
+            <article class="dispositivo_ej" id="Frigorifico">
+              <h3>Frigorífico</h3>
+              <figure>
+                <img src="/img/frigorifico.jpg" alt="Frigorífico" />
+              </figure>
+              <p>
+                El consumo aproximado de un frigorífico es
+                <strong>0.025Kwh</strong>. De modo que con el precio actual de
+                la energía, el coste por usar este producto durante una hora es:
+              </p>
+              <p data-power="0.025"></p>
+            </article>
+          </li>
+          <li>
+            <article class="dispositivo_ej" id="Induccion">
+              <h3>Placa de inducción</h3>
+              <figure>
+                <img src="/img/inducción.jpg" alt="Placa de inducción" />
+              </figure>
+              <p>
+                El consumo aproximado de una placa de inducción es
+                <strong>7.4 kwh(potencia máxima)</strong>. De modo que con el
+                precio actual de la energía, el coste por usar este producto
+                durante una hora es:
+              </p>
+              <p data-power="7.4"></p>
+            </article>
+          </li>
+          <li>
+            <article class="dispositivo_ej" id="Horno">
+              <h3>Horno</h3>
+              <figure>
+                <img src="/img/horno.jpg" alt="Horno" />
+              </figure>
+              <p>
+                El consumo aproximado de un horno es <strong>0.97 kwh</strong>.
+                De modo que con el precio actual de la energía, el coste por
+                usar este producto durante una hora es:
+              </p>
+              <p data-power="0.97"></p>
+            </article>
+          </li>
+        </ul>
+      </section>
 
-            <section id="ejemplos">
-                <h2>Consumos de algunos electrodomésticos</h2>
-                <ul>
-                    <li>
-                        <article class= "dispositivo_ej" id="Lavadora">
-                            <h3>Lavadora</h3>
-                            <figure>
-                                <img src="/img/lavadora.jpg" alt="Lavadora">
-                            </figure>
-                            <p>El consumo aproximado de una lavadora es <strong>4.34 kWh</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="4.34" class="valor_precio_luz"></p>
-                        </article>
-                    </li>
-                    <li>
-                        <article class= "dispositivo_ej" id="Frigorifico">
-                            <h3>Frigorífico</h3>
-                            <figure>
-                                <img src="/img/frigorifico.jpg" alt="Frigorífico">
-                            </figure>
-                            <p>El consumo aproximado de un frigorífico es <strong>0.025Kwh</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="0.025"></p>
-                        </article>
-                    </li>
-                    <li>            
-                        <article class= "dispositivo_ej" id="Induccion">
-                            <h3>Placa de inducción</h3>
-                            <figure>
-                                <img src="/img/inducción.jpg" alt="Placa de inducción">
-                            </figure>
-                            <p>El consumo aproximado de una placa de inducción es <strong>7.4 kwh(potencia máxima)</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="7.4"></p>
-                        </article>
-                    </li>
-                    <li>
-                        <article class= "dispositivo_ej" id="Horno">
-                            <h3>Horno</h3>
-                            <figure>
-                                <img src="/img/horno.jpg" alt="Horno">
-                            </figure>
-                            <p>El consumo aproximado de un horno es <strong>0.97 kwh</strong>. De modo que con el precio actual de la energía, el coste por usar este producto durante una hora es:</p>
-                            <p data-power="0.97" ></p>
-                        </article>
-                    </li>
-                </ul>
-            </section>
+      <section id="fuente">
+        <p>
+          Los datos proporcionados sobre el precio de la energía son propiedad
+          de Red eléctrica de España. Esta aplicación web no se hace responsable
+          de la inexactitud de los mismos tras obtenerlos de la fuente o debido
+          a su posterior tratamiento.
+        </p>
+        <p>
+          Los datos aquí mostrados han sido obtenidos de
+          <strong
+            ><a href="https://api.preciodelaluz.org/" target="blank"
+              >https://api.preciodelaluz.org/</a
+            ></strong
+          >
+        </p>
+      </section>
+    </main>
 
-            <section id="fuente">
-                <p>Los datos proporcionados sobre el precio de la energía son propiedad de Red eléctrica de España. Esta aplicación web no se hace responsable de la inexactitud de los mismos tras obtenerlos de la fuente o debido a su posterior tratamiento.</p>
-                <p>Los datos aquí mostrados han sido obtenidos de <strong><a href="https://api.preciodelaluz.org/" target="blank">https://api.preciodelaluz.org/</a></strong> </p>
-            </section>
-        </main>
+    <footer>
+      <ul>
+        <li>
+          Este trabajo pertenece a Rubén Castro y Pablo Diaz, alumnos del
+          bootcamp JR08RT
+        </li>
+      </ul>
+    </footer>
 
-        <footer>
-            <ul>
-                <li>Este trabajo pertenece a Rubén Castro y Pablo Diaz, alumnos del bootcamp JR08RT</li>
-            </ul>
-        </footer>
-        
-        <script type="module" src="/javascript/main.js"></script>
-    </body>
+    <script type="module" src="/javascript/main.js"></script>
+  </body>
 </html>

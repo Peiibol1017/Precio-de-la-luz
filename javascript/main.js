@@ -1,5 +1,6 @@
-import {calcularPrecio} from "./calculo.js";
-import {test} from "./peticion.js";
+import { calcularPrecio } from "./calculo.js";
+import { calcularPrecioSaved } from "./calculo.js";
+import { test } from "./peticion.js";
 
 //Aquí en el main manipularía el DOM. Para colocar cosas en el DOM tendría que poner funciones con callbacks a funciones de peticiones.
 //Variables----------------------------------------------------------------------------------
@@ -21,10 +22,15 @@ async function showActualPrice() {
   const priceHour = await test("actual", "hour");
   const maxPrice = await test("max", "price");
   const maxPriceHour = await test("max", "hour");
-  const minPrice = await test("min", "price"); 
+  const minPrice = await test("min", "price");
   const minPriceHour = await test("min", "hour");
-  localStorage.setItem("Precio", price);
-  localStorage.setItem("Fecha", saveTime());
+  localStorage.setItem("precio", price);
+  localStorage.setItem("horaPrecio", priceHour);
+  localStorage.setItem("precioMax", maxPrice);
+  localStorage.setItem("horaMax", maxPriceHour);
+  localStorage.setItem("precioMin", minPrice);
+  localStorage.setItem("horaMin", minPriceHour);
+  localStorage.setItem("fecha", saveTime());
   tarifaActualPrecio.textContent = `${price}€/Mwh`;
   tarifaActualHora.textContent = ` (${priceHour}h.) `;
   tarifaMaxPrecio.textContent = `${maxPrice}€/Mwh`;
@@ -32,84 +38,140 @@ async function showActualPrice() {
   tarifaMinPrecio.textContent = `${minPrice}€/Mwh`;
   tarifaMinHora.textContent = `${minPriceHour} h. `;
 
-  for (let i=0; i<arrayPower.length; i++) {
-    let indexValue = arrayPower[i].dataset.power
-    let devicePrice = await calcularPrecio(indexValue)
-    arrayPower[i].textContent = `${(Math.round(devicePrice*100))/100} €`
-  };
+  for (let i = 0; i < arrayPower.length; i++) {
+    let indexValue = arrayPower[i].dataset.power;
+    let devicePrice = await calcularPrecio(indexValue);
+    arrayPower[i].textContent = `${Math.round(devicePrice * 100) / 100} €`;
+  }
   console.log(price);
+  checkChange();
+  console.log("llamamos en teoria a checkchange");
   return price;
 }
 
-function saveTime (){
+function saveTime() {
   const now = new Date();
   const fechaConsulta = {};
-  fechaConsulta.fecha =  `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`; 
-  fechaConsulta.hora = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;  
-  minutesSaved = `${now.getMinutes()}`;
-  return JSON.stringify(fechaConsulta)
+  fechaConsulta.fecha = `${now.getDate()}/${
+    now.getMonth() + 1
+  }/${now.getFullYear()}`;
+  fechaConsulta.hora = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+  const minutesSaved = `${now.getMinutes()}`;
+  const hoursSaved = `${now.getHours()}`;
+  localStorage.setItem("minutos", minutesSaved);
+  localStorage.setItem("horas", hoursSaved);
+  console.log("se ha guardado en saveTime");
+  return JSON.stringify(fechaConsulta.fecha);
 }
 
-function showTime (){
+function showTime() {
   const now = new Date();
-  return now.getMinutes()
+  console.log("show time hizo el show");
+  return now.getMinutes();
 }
-
-async function checkChange (){
+function showDate() {
+  const now = new Date();
+  console.log("la hora exacta tio");
+  return now.getHours();
+}
+function showDias() {
+  const now = new Date();
+  const fechaConsulta = {};
+  fechaConsulta.fecha = `${now.getDate()}/${
+    now.getMonth() + 1
+  }/${now.getFullYear()}`;
+  console.log("esto seria cosa de dias");
+  return JSON.stringify(fechaConsulta.fecha);
+}
+async function checkChange() {
   const price = await test("actual", "price");
-  const checkPrice = localStorage.getItem("Precio");
-  const checkFecha = localStorage.getItem("Fecha");
-
-  if(price !== parseFloat(checkPrice) || Math.abs(showTime() - minutesSaved)>=5) {
-    console.log(minutesSaved);
-    console.log(showTime());
+  const checkPrice = localStorage.getItem("precio");
+  const checkFecha = localStorage.getItem("fecha");
+  const minutos = parseFloat(localStorage.getItem("minutos"));
+  const horas = parseFloat(localStorage.getItem("horas"));
+  if (
+    Math.abs(showTime() - minutos) >= 5 ||
+    Math.abs(showDate()) != Math.abs(horas) ||
+    checkFecha != showDias()
+  ) {
     console.log("He llegado aquí");
     showActualPrice();
-    checkChange();
+    return;
   } else {
     setTimeout(() => {
-      console.log(typeof showTime());
-      console.log(typeof minutesSaved);
-      console.log(Math.abs(showTime() - parseFloat(minutesSaved)))
-      console.log("He llegado al else")
-      return checkChange()
-    }, 300000);
+      console.log(minutos);
+      console.log(showTime());
+      console.log(Math.abs(showTime() - minutos >= 5));
+      console.log("He llegado al else");
+      return checkChange();
+    }, 60000);
+  }
+}
+function showPriceLocal() {
+  const price = localStorage.getItem("precio");
+  const priceHour = localStorage.getItem("horaPrecio");
+  const maxPrice = localStorage.getItem("precioMax");
+  const maxPriceHour = localStorage.getItem("horaMax");
+  const minPrice = localStorage.getItem("precioMin");
+  const minPriceHour = localStorage.getItem("horaMin");
+  console.log("los precios viejos perro");
+  tarifaActualPrecio.textContent = `${price}€/Mwh`;
+  tarifaActualHora.textContent = ` (${priceHour}h.) `;
+  tarifaMaxPrecio.textContent = `${maxPrice}€/Mwh`;
+  tarifaMaxHora.textContent = `${maxPriceHour} h. `;
+  tarifaMinPrecio.textContent = `${minPrice}€/Mwh`;
+  tarifaMinHora.textContent = `${minPriceHour} h. `;
+  for (let i = 0; i < arrayPower.length; i++) {
+    let indexValue = arrayPower[i].dataset.power;
+    let devicePrice = calcularPrecioSaved(indexValue);
+    arrayPower[i].textContent = `${Math.round(devicePrice * 100) / 100} €`;
+  }
+  checkChange();
+  return;
+}
+function firstCheckHandle() {
+  try {
+    if (localStorage.getItem("minutos") === null) {
+      console.log("se procede a guardar la hora");
+      showActualPrice();
+      checkChange();
+    } else {
+      console.log("tu ya has estado aqui");
+      checkChange();
+      showPriceLocal();
+    }
+  } catch (error) {
+    console.error(error.message);
   }
 }
 
-showActualPrice();
-checkChange();
-
-
-
-
+window.addEventListener("load", firstCheckHandle);
 
 //Menu ------------------------------------------------------------------------------------
 
 const menuIcon = document.querySelector("menu.screen img");
 const menuIconStatus = document.querySelector("[data-status]");
 const menuOpen = document.querySelector("div");
- 
-function openMenuClickHandle () {
+
+function openMenuClickHandle() {
   if (menuIconStatus.dataset.status === "open") {
-    menuOpen.style.cssText = "display: none;"
-    menuIconStatus.dataset.status ="close"
-    return
+    menuOpen.style.cssText = "display: none;";
+    menuIconStatus.dataset.status = "close";
+    return;
   }
   if (menuIconStatus.dataset.status === "close") {
-    menuOpen.style.cssText = "display: initial;"
-    menuIconStatus.dataset.status ="open"
-    return
+    menuOpen.style.cssText = "display: initial;";
+    menuIconStatus.dataset.status = "open";
+    return;
   }
-
 }
 
-function autoMenuCloseHandle (){
+function autoMenuCloseHandle() {
   if (window.innerWidth >= 750) {
-    menuOpen.style.cssText = "display: none;"
-    menuIconStatus.dataset.status ="close"
+    menuOpen.style.cssText = "display: none;";
+    menuIconStatus.dataset.status = "close";
   }
 }
 
-menuIcon.addEventListener("click", openMenuClickHandle)
+menuIcon.addEventListener("click", openMenuClickHandle);
 window.addEventListener("resize", autoMenuCloseHandle);

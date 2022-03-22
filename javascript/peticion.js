@@ -1,9 +1,13 @@
 // Link precio actual
-const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent('https://api.preciodelaluz.org/v1/prices/now?zone=PCB')}`//`https://api.allorigins.win/get?url=https://api.preciodelaluz.org/v1/prices/now?zone=PCB`;
+const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
+  "https://api.preciodelaluz.org/v1/prices/now?zone=PCB"
+)}`;
 // Lick precio maximo del dia
 const maxUrl = `https://api.allorigins.win/get?url=https://api.preciodelaluz.org/v1/prices/max?zone=PCB`;
 // Link precio minimo del dia
-const minUrl = `https://api.allorigins.win/get?url=${encodeURIComponent('https://api.preciodelaluz.org/v1/prices/min?zone=PCB')}`;
+const minUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
+  "https://api.preciodelaluz.org/v1/prices/min?zone=PCB"
+)}`;
 
 // Funcion Combinada para obtener precio hora y fecha
 
@@ -32,9 +36,8 @@ async function test(B, A) {
 
   if (B === "actual") {
     if (A === "price") {
-      let actualPrice = await getPrice(apiUrl, A)
+      let actualPrice = await getPrice(apiUrl, A);
       return actualPrice;
-    
     }
     if (A === "hour") {
       let actualPrice = await getPrice(apiUrl, A);
@@ -42,7 +45,7 @@ async function test(B, A) {
     }
     if (A === "date") {
       let actualPrice = await getPrice(apiUrl, A);
-      return actualPrice
+      return actualPrice;
     }
   }
   // Maximo
@@ -50,15 +53,15 @@ async function test(B, A) {
   if (B === "max") {
     if (A === "price") {
       let maxPrice = await getPrice(maxUrl, A);
-      return maxPrice
+      return maxPrice;
     }
     if (A === "hour") {
       let maxPrice = await getPrice(maxUrl, A);
-      return maxPrice
+      return maxPrice;
     }
     if (A === "date") {
       let maxPrice = await getPrice(maxUrl, A);
-      return maxPrice
+      return maxPrice;
     }
   }
   // Minimo
@@ -66,17 +69,17 @@ async function test(B, A) {
   if (B === "min") {
     if (A === "price") {
       let minPrice = await getPrice(minUrl, A);
-      return minPrice
+      return minPrice;
     }
     if (A === "hour") {
       let minPrice = await getPrice(minUrl, A);
-      return minPrice
+      return minPrice;
     }
     if (A === "date") {
       let minPrice = await getPrice(minUrl, A);
-      return minPrice
+      return minPrice;
     }
   }
 }
 
-export {test};
+export { test };
