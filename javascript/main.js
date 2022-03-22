@@ -129,7 +129,10 @@ async function showPriceLocal() {
 }
 async function firstCheckHandle() {
   try {
-    if (localStorage.getItem("minutos") === null) {
+    if (
+      localStorage.getItem("minutos") === null ||
+      localStorage.getItem("precio") != "undefined"
+    ) {
       console.log("se procede a guardar la hora");
       await showActualPrice();
       await checkChange();
