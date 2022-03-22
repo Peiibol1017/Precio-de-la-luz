@@ -43,9 +43,9 @@ async function showActualPrice() {
     let devicePrice = await calcularPrecio(indexValue);
     arrayPower[i].textContent = `${Math.round(devicePrice * 100) / 100} €`;
   }
-  console.log(price);
+  // console.log(price);
   await checkChange();
-  console.log("llamamos en teoria a checkchange");
+  // console.log("llamamos en teoria a checkchange");
   return price;
 }
 
@@ -60,18 +60,18 @@ function saveTime() {
   const hoursSaved = `${now.getHours()}`;
   localStorage.setItem("minutos", minutesSaved);
   localStorage.setItem("horas", hoursSaved);
-  console.log("se ha guardado en saveTime");
+  // console.log("se ha guardado en saveTime");
   return JSON.stringify(fechaConsulta.fecha);
 }
 
 function showTime() {
   const now = new Date();
-  console.log("show time hizo el show");
+  // console.log("show time hizo el show");
   return now.getMinutes();
 }
 function showDate() {
   const now = new Date();
-  console.log("la hora exacta tio");
+  // console.log("la hora exacta tio");
   return now.getHours();
 }
 function showDias() {
@@ -80,7 +80,7 @@ function showDias() {
   fechaConsulta.fecha = `${now.getDate()}/${
     now.getMonth() + 1
   }/${now.getFullYear()}`;
-  console.log("esto seria cosa de dias");
+  // console.log("esto seria cosa de dias");
   return JSON.stringify(fechaConsulta.fecha);
 }
 async function checkChange() {
@@ -92,15 +92,15 @@ async function checkChange() {
     Math.abs(showDate()) != Math.abs(horas) ||
     checkFecha != showDias()
   ) {
-    console.log("He llegado aquí");
+    // console.log("He llegado aquí");
     await showActualPrice();
     return;
   } else {
     setTimeout(() => {
-      console.log(minutos);
+      /* console.log(minutos);
       console.log(showTime());
       console.log(Math.abs(showTime() - minutos >= 5));
-      console.log("He llegado al else");
+      console.log("He llegado al else"); */
       return checkChange();
     }, 60000);
   }
@@ -112,7 +112,7 @@ async function showPriceLocal() {
   const maxPriceHour = localStorage.getItem("horaMax");
   const minPrice = localStorage.getItem("precioMin");
   const minPriceHour = localStorage.getItem("horaMin");
-  console.log("los precios viejos perro");
+  // console.log("los precios viejos perro");
   tarifaActualPrecio.textContent = `${price}€/Mwh`;
   tarifaActualHora.textContent = ` (${priceHour}h.) `;
   tarifaMaxPrecio.textContent = `${maxPrice}€/Mwh`;
@@ -129,15 +129,12 @@ async function showPriceLocal() {
 }
 async function firstCheckHandle() {
   try {
-    if (
-      localStorage.getItem("minutos") === null ||
-      localStorage.getItem("precio") != "undefined"
-    ) {
-      console.log("se procede a guardar la hora");
+    if (localStorage.getItem("minutos") === null) {
+      // console.log("se procede a guardar la hora");
       await showActualPrice();
       await checkChange();
     } else {
-      console.log("tu ya has estado aqui");
+      // console.log("tu ya has estado aqui");
       await showPriceLocal();
       await checkChange();
     }
